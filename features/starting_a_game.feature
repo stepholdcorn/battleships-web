@@ -4,8 +4,13 @@ Feature: Starting the game
   I want to start a new game
 
   Scenario: Registering
-    Given I am on the homepage
-    When I follow "New Game"
+    Given I am on the register page
     When I fill in "name" with "Steph"
     When I press "Register" 
     Then I should see "Welcome Steph"
+
+  Scenario: Blank Name Error
+    Given I am on the register page
+    When I fill in "name" with ""
+    When I press "Register"
+    Then I should see "Please input a name" 
