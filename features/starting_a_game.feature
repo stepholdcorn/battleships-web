@@ -14,3 +14,15 @@ Feature: Starting the game
     When I fill in "name" with ""
     When I press "Register"
     Then I should see "Please input a name" 
+
+  Scenario: First player
+    Given I am on the register page
+    When I fill in "name" with "Steph"
+    When I press "Register"
+    Then I should see "Player 1 has been assigned to Steph"
+
+  Scenario: Second Player
+    Given I am on the register page
+    When I fill in "name" with "Josh"
+    When I press "Register"
+    Then I should see "Player 2 has been assigned to Josh"

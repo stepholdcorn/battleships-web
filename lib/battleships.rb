@@ -15,6 +15,13 @@ set :views, Proc.new { File.join(root, '..', "views") }
   get '/' do
     'Hello BattleShips!'
     @name = params[:name]
+
+    if @game.player1.name
+      @game.player2.name = @name
+    else
+      @game.player1.name = @name
+    end
+
     @game.add_player(@name)
     erb :index
   end

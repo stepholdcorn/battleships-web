@@ -1,10 +1,17 @@
 class Game
+
+	require_relative 'player'
 	attr_accessor :player1, :player2
 	attr_writer :turn
 
 	def initialize
-		player1, player2 = nil, nil
+		@player1, @player2 = Player.new, Player.new
 	end
+
+	def initialize
+	end
+
+	attr_reader :c
 
 	def add_player(player)
 		self.player1 ? self.player2 = player : self.player1 = player unless has_two_players?
@@ -32,6 +39,10 @@ class Game
 		@turn ||= player1
 	end
 
+	def has_two_players?
+		!player2.nil?
+	end
+
 	alias :current_player :turn
 
 private 
@@ -48,7 +59,4 @@ private
 		turn == player1 ? self.turn = player2 : self.turn = player1
 	end
 
-	def has_two_players?
-		!player2.nil?
-	end
 end
