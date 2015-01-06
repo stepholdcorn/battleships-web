@@ -6,6 +6,7 @@ set :views, Proc.new { File.join(root, '..', "views") }
 
   get '/' do
     'Hello BattleShips!'
+    @name = params[:name]
     erb :index
   end
 

@@ -1,1 +1,5 @@
-<a href ='/register' >New Game</a>
+<% if @name %>
+	Welcome <%= @name %>
+<% else %>
+	<a href ='/register' >New Game</a>
+<% end %>

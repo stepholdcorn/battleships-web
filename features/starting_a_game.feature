@@ -6,4 +6,6 @@ Feature: Starting the game
   Scenario: Registering
     Given I am on the homepage
     When I follow "New Game"
-    Then I should see "Welcome player 1"
+    When I fill in "name" with "Steph"
+    When I press "Register" 
+    Then I should see "Welcome Steph"
