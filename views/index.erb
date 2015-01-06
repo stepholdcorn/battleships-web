@@ -1,7 +1,14 @@
 <% if @name == "" %>
-	<p>Please input a name</p>
+  <div class="alert alert-danger" role="alert">
+	  <h3>
+      <span class="glyphicon glyphicon-exclamation-sign" style="padding: 10px;"></span>
+      Please input a name
+    </h3>
+
+  </div>
 <% elsif @name %>
-  	Welcome <%= @name %>
+  	<h1>Welcome <%= @name %></h1>
 <% else %>
-	<a href ='/register' >New Game</a>
+  <h1>Welcome to Battleships!</h1>
+	<a href ='/register' ><button class="btn btn-primary">New Game</button></a>
 <% end %>
