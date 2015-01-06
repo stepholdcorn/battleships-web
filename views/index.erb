@@ -1,7 +1,7 @@
-<% if @name.empty? %>
+<% if @name == "" %>
 	<p>Please input a name</p>
 <% elsif @name %>
-  Welcome <%= @name %>
+  	Welcome <%= @name %>
 <% else %>
 	<a href ='/register' >New Game</a>
 <% end %>
