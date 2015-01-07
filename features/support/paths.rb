@@ -16,6 +16,9 @@ module NavigationHelpers
     when /the register page/
       '/register'
 
+    when /the ship placement page/
+      '/ship_placement'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

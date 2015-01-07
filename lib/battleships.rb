@@ -33,14 +33,6 @@ set :views, Proc.new { File.join(root, '..', "views") }
     end
   end
 
-  get '/ship_placement' do
-    erb :ship_placement
-  end
-
-  get '/error' do
-    erb :error
-  end
-
   # start the server if ruby file executed directly
   if app_file == $0
   	run!
