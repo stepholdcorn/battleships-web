@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'game'
+require_relative 'player'
 
 class BattleShips < Sinatra::Base
 
@@ -23,13 +24,23 @@ enable :sessions
 
   post '/register' do
     @name = params[:name]
-    session[:player_name] = params[:name]
-    @game.add_player(@name)
-    redirect '/waiting'
+    if @name.length == 0
+      redirect '/error'
+    else
+      @player = Player.new
+      @player.name = @name
+      session[:player] = @player.object_id
+      @game.add_player(@player)
+      redirect '/waiting'
+    end
   end
 
   get '/waiting' do
     erb :waiting
+  end
+
+  get '/error' do
+    erb :error
   end
 
   # start the server if ruby file executed directly

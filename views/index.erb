@@ -1,14 +1,2 @@
-<% if @name == "" %>
-  <div class="alert alert-danger" role="alert">
-	  <h3>
-      <span class="glyphicon glyphicon-exclamation-sign" style="padding: 10px;"></span>
-      Please input a name
-    </h3>
-
-  </div>
-<% elsif @name %>
-  <h1>Player 1 has been assigned to <%= @name %></h1>
-<% else %>
-  <h1>Welcome to Battleships!</h1>
-	<a href ='/register' ><button class="btn btn-primary">New Game</button></a>
-<% end %>
+<h1>Welcome to Battleships!</h1>
+<a href ='/register' ><button class="btn btn-primary">New Game</button></a>

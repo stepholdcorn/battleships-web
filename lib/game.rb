@@ -1,11 +1,10 @@
 class Game
 
-	require_relative 'player'
 	attr_accessor :player1, :player2
 	attr_writer :turn
 
 	def initialize
-		@player1, @player2 = Player.new, Player.new
+		player1, player2 = nil, nil
 	end
 
 	def add_player(player)
@@ -34,13 +33,13 @@ class Game
 		@turn ||= player1
 	end
 
-	def has_two_players?
-		!player2.nil?
-	end
-
 	alias :current_player :turn
 
 private 
+
+	def has_two_players?
+		!player2.nil?
+	end
 
 	def both_players_have_five_ships?
 		(player1.board.ships_count == 5) and (player2.board.ships_count == 5) 
