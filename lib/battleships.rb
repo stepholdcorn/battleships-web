@@ -5,7 +5,6 @@ require_relative 'player'
 class BattleShips < Sinatra::Base
 
 set :views, Proc.new { File.join(root, '..', "views") }
-enable :sessions
 
 	def initialize
   		@game = Game.new
@@ -25,18 +24,17 @@ enable :sessions
   post '/register' do
     @name = params[:name]
     if @name.length == 0
-      redirect '/error'
+      erb :error
     else
       @player = Player.new
       @player.name = @name
-      session[:player] = @player.object_id
       @game.add_player(@player)
-      redirect '/waiting'
+      erb :ship_placement
     end
   end
 
-  get '/waiting' do
-    erb :waiting
+  get '/ship_placement' do
+    erb :ship_placement
   end
 
   get '/error' do

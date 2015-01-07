@@ -15,10 +15,11 @@ Feature: Starting the game
     When I press "Register"
     Then I should see "Player 1 has been assigned to Steph"
 
-  Scenario: Second player
-    Given I am on the register page
-    When I fill in "name" with "Josh"
-    When I press "Register"
-    Then I should see "Game ready"
+  Scenario: Ship placement
+    Given I am on the ship placement page
+    When I fill in "ship" with "battleship"
+    When I press "Place"
+    Then I should see "Battleship placed"
+
 
   
