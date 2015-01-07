@@ -44,11 +44,10 @@ set :views, Proc.new { File.join(root, '..', "views") }
 
   post '/ship_placement' do
     @aircraft_carrier = @board.place(Ship.aircraft_carrier, params[:ac_coord].to_sym, params[:ac_orientation].to_sym)
-    # @aircraft_carrier = [params[:ac_coord], params[:ac_orientation]]
-    @battleship = [params[:bs_coord], params[:bs_orientation]]
-    @destroyer = [params[:d_coord], params[:d_orientation]]
-    @submarine = [params[:s_coord], params[:s_orientation]]
-    @patrol_boat = [params[:pb_coord], params[:pb_orientation]]
+    @battleship = @board.place(Ship.battleship, params[:bs_coord].to_sym, params[:bs_orientation].to_sym)
+    @destroyer = @board.place(Ship.destroyer, params[:d_coord].to_sym, params[:d_orientation].to_sym)
+    @submarine = @board.place(Ship.submarine, params[:s_coord].to_sym, params[:s_orientation].to_sym)
+    @patrol_boat = @board.place(Ship.patrol_boat, params[:pb_coord].to_sym, params[:pb_orientation].to_sym)
     erb :game_page
   end
 
