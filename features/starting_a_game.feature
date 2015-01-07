@@ -17,10 +17,13 @@ Feature: Starting the game
 
   Scenario: Ship placement
     Given I am on the ship placement page
-    When I fill in "bs_coordinate" with "A1"
+    When I fill in "bs_coord" with "A1"
     When I select "Vertical" from "bs_orientation"
+    When I fill in "ac_coord" with "C4"
+    When I select "Horizontal" from "ac_orientation"
     When I press "Place"
     Then I should see "Battleship placed"
+    And I should see "Aircraft Carrier placed"
 
 
   

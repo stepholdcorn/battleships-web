@@ -2,7 +2,7 @@
 
   <div class="form-group">
     <label>Aircraft Carrier: </label>
-    <input type="text" name="ac_coordinate">
+    <input type="text" name="ac_coord">
     <select name="ac_orientation">
       <option value="vertical">Vertical</option>
       <option value="horizontal">Horizontal</option>
@@ -11,7 +11,7 @@
 
   <div class="form-group">
     <label>Battleship: </label>
-    <input type="text" name="bs_coordinate">
+    <input type="text" name="bs_coord">
     <select name="bs_orientation">
       <option value="vertical">Vertical</option>
       <option value="horizontal">Horizontal</option>
@@ -20,7 +20,7 @@
 
   <div class="form-group">
     <label>Destroyer: </label>
-    <input type="text" name="d_coordinate">
+    <input type="text" name="d_coord">
     <select name="d_orientation">
       <option value="vertical">Vertical</option>
       <option value="horizontal">Horizontal</option>
@@ -29,7 +29,7 @@
 
   <div class="form-group">
     <label>Submarine: </label>
-    <input type="text" name="s_coordinate">
+    <input type="text" name="s_coord">
     <select name="s_orientation">
       <option value="vertical">Vertical</option>
       <option value="horizontal">Horizontal</option>
@@ -38,7 +38,7 @@
 
   <div class="form-group">
     <label>Patrol boat: </label>
-    <input type="text" name="pb_coordinate">
+    <input type="text" name="pb_coord">
     <select name="pb_orientation">
       <option value="vertical">Vertical</option>
       <option value="horizontal">Horizontal</option>
@@ -48,4 +48,19 @@
   <input type="submit" value="Place">
 </form>
 
-Battleship placed
+
+<% if @aircraft_carrier %>
+	Aircraft Carrier placed
+<% end %>
+<% if @battleship %>
+	Battleship placed
+<% end %>
+<% if @destroyer %>
+	Destroyer placed
+<% end %>
+<% if @submarine %>
+	Submarine placed
+<% end %>
+<% if @patrol_boat %>
+	Patrol Boat placed
+<% end %>

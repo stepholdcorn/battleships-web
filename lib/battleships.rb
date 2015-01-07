@@ -38,11 +38,11 @@ set :views, Proc.new { File.join(root, '..', "views") }
   end
 
   post '/ship_placement' do
-    @aircraft_carrier = [params[:ac_coordinate], params[:ac_orientation]]
-    @battleship = [params[:bs_coordinate], params[:bs_orientation]]
-    @destroyer = [params[:d_coordinate], params[:d_orientation]]
-    @submarine = [params[:s_coordinate], params[:s_orientation]]
-    @patrol_boat = [params[:pb_coordinate], params[:pb_orientation]]
+    @aircraft_carrier = [params[:ac_coord], params[:ac_orientation]]
+    @battleship = [params[:bs_coord], params[:bs_orientation]]
+    @destroyer = [params[:d_coord], params[:d_orientation]]
+    @submarine = [params[:s_coord], params[:s_orientation]]
+    @patrol_boat = [params[:pb_coord], params[:pb_orientation]]
     erb :ship_placement
   end
 
