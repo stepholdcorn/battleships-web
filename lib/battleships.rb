@@ -1,6 +1,10 @@
 require 'sinatra/base'
 require_relative 'game'
 require_relative 'player'
+require_relative 'board'
+require_relative 'ship'
+require_relative 'water'
+require_relative 'cell'
 
 class BattleShips < Sinatra::Base
 
@@ -8,6 +12,7 @@ set :views, Proc.new { File.join(root, '..', "views") }
 
 	def initialize
   		@game = Game.new
+      @board = Board.new(Cell)
   		super
 	end
 
@@ -38,12 +43,13 @@ set :views, Proc.new { File.join(root, '..', "views") }
   end
 
   post '/ship_placement' do
-    @aircraft_carrier = [params[:ac_coord], params[:ac_orientation]]
+    @aircraft_carrier = @board.place(Ship.aircraft_carrier, params[:ac_coord].to_sym, params[:ac_orientation].to_sym)
+    # @aircraft_carrier = [params[:ac_coord], params[:ac_orientation]]
     @battleship = [params[:bs_coord], params[:bs_orientation]]
     @destroyer = [params[:d_coord], params[:d_orientation]]
     @submarine = [params[:s_coord], params[:s_orientation]]
     @patrol_boat = [params[:pb_coord], params[:pb_orientation]]
-    erb :ship_placement
+    erb :game_page
   end
 
   # start the server if ruby file executed directly
