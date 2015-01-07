@@ -16,6 +16,10 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+Then(/^I should see a table$/) do
+  page.has_xpath?('//table/tr')
+end
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
