@@ -8,11 +8,6 @@ class Game
 		@player1, @player2 = Player.new, Player.new
 	end
 
-	def initialize
-	end
-
-	attr_reader :c
-
 	def add_player(player)
 		self.player1 ? self.player2 = player : self.player1 = player unless has_two_players?
 	end

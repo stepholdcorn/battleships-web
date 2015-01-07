@@ -4,31 +4,32 @@ require_relative 'game'
 class BattleShips < Sinatra::Base
 
 set :views, Proc.new { File.join(root, '..', "views") }
+enable :sessions
 
 	def initialize
-		puts "initialize called"
-		puts "Creating a game"
   		@game = Game.new
   		super
 	end
 
   get '/' do
     'Hello BattleShips!'
-    @name = params[:name]
-
-    if @game.player1.name
-      @game.player2.name = @name
-    else
-      @game.player1.name = @name
-    end
-
-    @game.add_player(@name)
     erb :index
   end
 
   get '/register' do
     'What\'s your name?'
     erb :register
+  end
+
+  post '/register' do
+    @name = params[:name]
+    session[:player_name] = params[:name]
+    @game.add_player(@name)
+    redirect '/waiting'
+  end
+
+  get '/waiting' do
+    erb :waiting
   end
 
   # start the server if ruby file executed directly

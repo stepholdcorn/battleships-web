@@ -7,12 +7,7 @@
 
   </div>
 <% elsif @name %>
-  	<h1>Welcome <%= @name %></h1>
-  	<% if @game.ready? %>
-  	Woohoo
-  	<% else %>
-  	Please enter another name
-  	<% end %>
+  <h1>Player 1 has been assigned to <%= @name %></h1>
 <% else %>
   <h1>Welcome to Battleships!</h1>
 	<a href ='/register' ><button class="btn btn-primary">New Game</button></a>

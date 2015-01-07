@@ -3,12 +3,6 @@ Feature: Starting the game
   As a nostalgic player
   I want to start a new game
 
-  Scenario: Registering
-    Given I am on the register page
-    When I fill in "name" with "Steph"
-    When I press "Register" 
-    Then I should see "Welcome Steph"
-
   Scenario: Blank Name Error
     Given I am on the register page
     When I fill in "name" with ""
@@ -21,8 +15,10 @@ Feature: Starting the game
     When I press "Register"
     Then I should see "Player 1 has been assigned to Steph"
 
-  Scenario: Second Player
+  Scenario: Second player
     Given I am on the register page
     When I fill in "name" with "Josh"
     When I press "Register"
-    Then I should see "Player 2 has been assigned to Josh"
+    Then I should see "Game ready"
+
+  
