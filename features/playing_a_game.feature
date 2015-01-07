@@ -4,5 +4,7 @@ Feature: Playing the game
   I want to see my board
 
   Scenario: Viewing my own board
-    Given I am on the game page
-    Then I should see a table
+    Given I have placed my ships
+    Then I should see ship 20 times 
+
+

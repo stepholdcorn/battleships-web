@@ -16,8 +16,8 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Then(/^I should see a table$/) do
-  page.has_xpath?('//table/tr')
+Then(/^I should see ship 20 times$/) do
+  page.assert_text("ship", options = { count: 20 })
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|

@@ -51,6 +51,10 @@ set :views, Proc.new { File.join(root, '..', "views") }
     erb :game_page
   end
 
+  get '/game_page' do
+    erb :game_page
+  end
+
   # start the server if ruby file executed directly
   if app_file == $0
   	run!
