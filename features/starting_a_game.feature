@@ -17,7 +17,8 @@ Feature: Starting the game
 
   Scenario: Ship placement
     Given I am on the ship placement page
-    When I fill in "ship" with "battleship"
+    When I fill in "bs_coordinate" with "A1"
+    When I select "Vertical" from "bs_orientation"
     When I press "Place"
     Then I should see "Battleship placed"
 

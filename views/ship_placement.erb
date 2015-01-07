@@ -1,6 +1,50 @@
 <form action="/ship_placement" method="post">
-  <label>Ship</label>
-  <input type="text" name="ship">
+
+  <div class="form-group">
+    <label>Aircraft Carrier: </label>
+    <input type="text" name="ac_coordinate">
+    <select name="ac_orientation">
+      <option value="vertical">Vertical</option>
+      <option value="horizontal">Horizontal</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Battleship: </label>
+    <input type="text" name="bs_coordinate">
+    <select name="bs_orientation">
+      <option value="vertical">Vertical</option>
+      <option value="horizontal">Horizontal</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Destroyer: </label>
+    <input type="text" name="d_coordinate">
+    <select name="d_orientation">
+      <option value="vertical">Vertical</option>
+      <option value="horizontal">Horizontal</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Submarine: </label>
+    <input type="text" name="s_coordinate">
+    <select name="s_orientation">
+      <option value="vertical">Vertical</option>
+      <option value="horizontal">Horizontal</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Patrol boat: </label>
+    <input type="text" name="pb_coordinate">
+    <select name="pb_orientation">
+      <option value="vertical">Vertical</option>
+      <option value="horizontal">Horizontal</option>
+    </select>
+  </div>
+  
   <input type="submit" value="Place">
 </form>
 
