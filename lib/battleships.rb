@@ -29,8 +29,16 @@ set :views, Proc.new { File.join(root, '..', "views") }
       @player = Player.new
       @player.name = @name
       @game.add_player(@player)
-      erb :ship_placement
+      erb :registered
     end
+  end
+
+  get '/ship_placement' do
+    erb :ship_placement
+  end
+
+  post '/ship_placement' do
+    erb :ship_placement
   end
 
   # start the server if ruby file executed directly
