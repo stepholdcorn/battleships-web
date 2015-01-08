@@ -36,11 +36,6 @@ class BattleShips < Sinatra::Base
     end
   end
 
-  get '/registered' do
-    @player = session[:player]
-    erb :registered
-  end
-
   get '/ship_placement' do
     @player = session[:player]
     erb :ship_placement

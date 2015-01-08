@@ -1,26 +1,11 @@
 <h1>Game Page</h1>
 
-<% if @player.board.ship_count == 5 %>
+<% if @player.board.ships_count == 5 %>
 	Ships placed
 <% end %>
 
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
-ship
+<% if @player.board.grid[:A1].content != nil %>
+	ship
+<% else %>
+	water
+<% end %>

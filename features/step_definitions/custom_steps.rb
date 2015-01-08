@@ -10,18 +10,25 @@ end
 World(WithinHelpers)
 
 Given(/^I have placed my ships$/) do
-	visit path_to('the register page')
-	fill_in("name", :with => "Steph")
-	click_button("Register")
-	click_button("Place ships!")
-	fill_in("ac_coord", :with => "A1")
-	select("horizontally", :from => "ac_orientation")
+	step 'I fill in "bs_coord" with "A1"'
+	step 'I select "horizontally" from "bs_orientation"'
+	step 'I fill in "ac_coord" with "B1"'
+	step 'I select "horizontally" from "ac_orientation"'
+	step 'I fill in "d_coord" with "C1"'
+	step 'I select "horizontally" from "d_orientation"'
+	step 'I fill in "s_coord" with "D1"'
+	step 'I select "horizontally" from "s_orientation"'
+	step 'I fill in "pb_coord" with "E1"'
+	step 'I select "horizontally" from "pb_orientation"'
+	step 'I press "Place"'
+end
 
+Then(/^I should see ship 20 times$/) do
+  page.assert_text("ship", options = { count: 20 })
 end
 
 Given(/^I have a player$/) do
   step "I am on the register page"
   step 'I fill in "name" with "Steph"'
   step 'I press "Register"'
-  # step 'I press "Next"'
 end
