@@ -6,6 +6,6 @@ Feature: Playing the game
   Scenario: Viewing my own board
   	Given I have a player
     Given I have placed my ships
-    Then I should see ship 20 times 
+    Then I should see ship 25 times 
 
 

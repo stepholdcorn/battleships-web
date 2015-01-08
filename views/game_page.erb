@@ -4,8 +4,10 @@
 	Ships placed
 <% end %>
 
-<% if @player.board.grid[:A1].content != nil %>
-	ship
-<% else %>
-	water
+<% @player.board.grid.each do |key, value| %>
+  <% if value.content != nil %>
+	  ship
+  <% else %>
+	  water
+  <% end %>
 <% end %>

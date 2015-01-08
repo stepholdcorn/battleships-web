@@ -23,8 +23,8 @@ Given(/^I have placed my ships$/) do
 	step 'I press "Place"'
 end
 
-Then(/^I should see ship 20 times$/) do
-  page.assert_text("ship", options = { count: 20 })
+Then(/^I should see ship 25 times$/) do
+  page.assert_text("ship", options = { count: 25 })
 end
 
 Given(/^I have a player$/) do
