@@ -4,10 +4,18 @@
 	Ships placed
 <% end %>
 
+<style>
+.grid {
+
+	width: 830px;
+}
+</style>
+<section class="grid">
 <% @player.board.grid.each do |key, value| %>
   <% if value.content != nil %>
-	  ship
+	  <button class = 'btn btn-warning btn-lg'>&nbspship&nbsp</button>
   <% else %>
-	  water
+	  <button class = 'btn btn-primary btn-lg'>water</button>
   <% end %>
 <% end %>
+</section>
