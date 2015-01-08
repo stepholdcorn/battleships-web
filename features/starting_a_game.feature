@@ -28,8 +28,7 @@ Feature: Starting the game
     When I fill in "pb_coord" with "E1"
     When I select "horizontally" from "pb_orientation"
     When I press "Place"
-    Then I should see "Battleship placed"
-    And I should see "Aircraft Carrier placed"
+    Then I should see "Ships placed"
 
 
   
