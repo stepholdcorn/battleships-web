@@ -18,3 +18,10 @@ Given(/^I have placed my ships$/) do
 	select("horizontally", :from => "ac_orientation")
 
 end
+
+Given(/^I have a player$/) do
+  step "I am on the register page"
+  step 'I fill in "name" with "Steph"'
+  step 'I press "Register"'
+  # step 'I press "Next"'
+end

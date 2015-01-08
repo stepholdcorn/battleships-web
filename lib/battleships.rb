@@ -28,30 +28,36 @@ class BattleShips < Sinatra::Base
       erb :error
     else
       @player = Player.new
+      @player.board = board
       @player.name = @name
-      session[:player] = @player.object_id
+      session[:player] = @player
       game.add_player(@player)
-      erb :registered
+      redirect 'ship_placement'
     end
   end
 
+  get '/registered' do
+    @player = session[:player]
+    erb :registered
+  end
+
   get '/ship_placement' do
+    @player = session[:player]
     erb :ship_placement
   end
 
   post '/ship_placement' do
     @player = session[:player]
-    @aircraft_carrier = board.place(Ship.aircraft_carrier, params[:ac_coord].to_sym, params[:ac_orientation].to_sym)
-    @battleship = board.place(Ship.battleship, params[:bs_coord].to_sym, params[:bs_orientation].to_sym)
-    @destroyer = board.place(Ship.destroyer, params[:d_coord].to_sym, params[:d_orientation].to_sym)
-    @submarine = board.place(Ship.submarine, params[:s_coord].to_sym, params[:s_orientation].to_sym)
-    @patrol_boat = board.place(Ship.patrol_boat, params[:pb_coord].to_sym, params[:pb_orientation].to_sym)
+    @aircraft_carrier = @player.board.place(Ship.aircraft_carrier, params[:ac_coord].to_sym, params[:ac_orientation].to_sym)
+    @battleship = @player.board.place(Ship.battleship, params[:bs_coord].to_sym, params[:bs_orientation].to_sym)
+    @destroyer = @player.board.place(Ship.destroyer, params[:d_coord].to_sym, params[:d_orientation].to_sym)
+    @submarine = @player.board.place(Ship.submarine, params[:s_coord].to_sym, params[:s_orientation].to_sym)
+    @patrol_boat = @player.board.place(Ship.patrol_boat, params[:pb_coord].to_sym, params[:pb_orientation].to_sym)
     redirect '/game_page'
   end
 
   get '/game_page' do
     @player = session[:player]
-    @board = board
     erb :game_page
   end
 

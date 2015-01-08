@@ -16,7 +16,7 @@ Feature: Starting the game
     Then I should see "Player 1 has been assigned to Steph"
 
   Scenario: Ship placement
-    Given I am on the ship placement page
+    Given I have a player
     When I fill in "bs_coord" with "A1"
     When I select "horizontally" from "bs_orientation"
     When I fill in "ac_coord" with "B1"
@@ -29,6 +29,3 @@ Feature: Starting the game
     When I select "horizontally" from "pb_orientation"
     When I press "Place"
     Then I should see "Ships placed"
-
-
-  

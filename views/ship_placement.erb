@@ -1,3 +1,5 @@
+<p>Player 1 has been assigned to <%= @player.name %></p>
+
 <form action="/ship_placement" method="post">
 
   <div class="form-group">
@@ -10,8 +12,8 @@
   </div>
 
   <div class="form-group">
-    <label>Battleship: </label>
-    <input type="text" name="bs_coord">
+    <label>Battleship:</label>
+    <input type = "text" name = "bs_coord">
     <select name="bs_orientation">
       <option value="vertically">vertically</option>
       <option value="horizontally">horizontally</option>
